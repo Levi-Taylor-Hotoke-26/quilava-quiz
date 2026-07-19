@@ -672,47 +672,62 @@ const badgeNames = [
   'Earth Badge'
 ];
 
+const badgeImages = {
+  'Boulder Badge': 'https://static.wikia.nocookie.net/pokemon/images/d/dd/Boulder_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015140145',
+  'Cascade Badge': 'https://static.wikia.nocookie.net/pokemon/images/9/9c/Cascade_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015140805',
+  'Thunder Badge': 'https://static.wikia.nocookie.net/pokemon/images/a/a6/Thunder_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015141106',
+  'Rainbow Badge': 'https://static.wikia.nocookie.net/pokemon/images/b/b5/Rainbow_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015141116',
+  'Soul Badge': 'https://static.wikia.nocookie.net/pokemon/images/7/7d/Soul_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015141124',
+  'Marsh Badge': 'https://static.wikia.nocookie.net/pokemon/images/6/6b/Marsh_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015141132',
+  'Earth Badge': 'https://static.wikia.nocookie.net/pokemon/images/7/78/Earth_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015141830',
+  'Volcano Badge': 'https://static.wikia.nocookie.net/pokemon/images/1/12/Volcano_Badge.png/revision/latest/scale-to-width-down/50?cb=20241015141139'
+};
+
+function getRandomQuestion(bank) {
+  return bank[Math.floor(Math.random() * bank.length)];
+}
+
 const quizQuestions = [
-  questionOneBank[0],
-  questionTwoBank[0],
-  questionThreeBank[0],
-  questionFourBank[0],
-  questionFiveBank[0],
-  questionSixBank[0],
-  questionSevenBank[0],
-  questionEightBank[0],
-  questionNineBank[0],
-  questionTenBank[0],
-  questionElevenBank[0],
-  questionTwelveBank[0],
-  questionThirteenBank[0],
-  questionFourteenBank[0],
-  questionFifteenBank[1],
-  questionSixteenBank[0],
-  questionSeventeenBank[0],
-  questionEighteenBank[0],
-  questionNineteenBank[1],
-  questionTwentyBank[0],
-  questionTwentyOneBank[0],
-  questionTwentyTwoBank[0],
-  questionTwentyThreeBank[0],
-  questionTwentyFourBank[0],
-  questionTwentyFiveBank[0],
-  questionTwentySixBank[0],
-  questionTwentySevenBank[0],
-  questionTwentyEightBank[0],
-  questionTwentyNineBank[0],
-  questionThirtyBank[0],
-  questionThirtyOneBank[0],
-  questionThirtyTwoBank[0],
-  questionThirtyThreeBank[0],
-  questionThirtyFourBank[0],
-  questionThirtyFiveBank[0],
-  questionThirtySixBank[0],
-  questionThirtySevenBank[0],
-  questionThirtyEightBank[0],
-  questionThirtyNineBank[0],
-  questionFortyBank[0]
+  getRandomQuestion(questionOneBank),
+  getRandomQuestion(questionTwoBank),
+  getRandomQuestion(questionThreeBank),
+  getRandomQuestion(questionFourBank),
+  getRandomQuestion(questionFiveBank),
+  getRandomQuestion(questionSixBank),
+  getRandomQuestion(questionSevenBank),
+  getRandomQuestion(questionEightBank),
+  getRandomQuestion(questionNineBank),
+  getRandomQuestion(questionTenBank),
+  getRandomQuestion(questionElevenBank),
+  getRandomQuestion(questionTwelveBank),
+  getRandomQuestion(questionThirteenBank),
+  getRandomQuestion(questionFourteenBank),
+  getRandomQuestion(questionFifteenBank),
+  getRandomQuestion(questionSixteenBank),
+  getRandomQuestion(questionSeventeenBank),
+  getRandomQuestion(questionEighteenBank),
+  getRandomQuestion(questionNineteenBank),
+  getRandomQuestion(questionTwentyBank),
+  getRandomQuestion(questionTwentyOneBank),
+  getRandomQuestion(questionTwentyTwoBank),
+  getRandomQuestion(questionTwentyThreeBank),
+  getRandomQuestion(questionTwentyFourBank),
+  getRandomQuestion(questionTwentyFiveBank),
+  getRandomQuestion(questionTwentySixBank),
+  getRandomQuestion(questionTwentySevenBank),
+  getRandomQuestion(questionTwentyEightBank),
+  getRandomQuestion(questionTwentyNineBank),
+  getRandomQuestion(questionThirtyBank),
+  getRandomQuestion(questionThirtyOneBank),
+  getRandomQuestion(questionThirtyTwoBank),
+  getRandomQuestion(questionThirtyThreeBank),
+  getRandomQuestion(questionThirtyFourBank),
+  getRandomQuestion(questionThirtyFiveBank),
+  getRandomQuestion(questionThirtySixBank),
+  getRandomQuestion(questionThirtySevenBank),
+  getRandomQuestion(questionThirtyEightBank),
+  getRandomQuestion(questionThirtyNineBank),
+  getRandomQuestion(questionFortyBank)
 ];
 
 let currentQuestionIndex = 0;
@@ -768,7 +783,14 @@ function updateBadgeDisplay() {
   if (badgeCollection) {
     badgeCollection.innerHTML = badgeNames.map((badgeName, index) => {
       const earned = correctAnswers >= (index + 1) * 5;
-      return `<span class="gym-badge ${earned ? 'earned' : ''}">${badgeName}</span>`;
+      const badgeImage = badgeImages[badgeName];
+
+      return `
+        <span class="gym-badge ${earned ? 'earned' : ''}">
+          ${earned ? `<img src="${badgeImage}" alt="${badgeName}" />` : ''}
+          <span>${badgeName}</span>
+        </span>
+      `;
     }).join('');
   }
 }
@@ -818,7 +840,7 @@ if (answerForm) {
       } else if (answerInput) {
         answerInput.disabled = true;
         if (feedback) {
-          feedback.textContent = 'Quiz complete! Typhlosion achieved!';
+          feedback.textContent = "Quiz complete! Your Quilava evolved into a Typhlosion and now you're ready to take on the elite four!";
         }
       }
     } else if (feedback) {
