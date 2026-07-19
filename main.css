@@ -6,6 +6,9 @@
 
 body {
   background: #F5E6C4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -17,12 +20,13 @@ h1, h2 {
   background: #4A6E75;
   padding: 2px;
   text-align: center;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
 }
 
 #question-one {
   font-family: 'pokemon', sans-serif;
-  color:#7a1f1f
+  color:#7a1f1f;
+  text-align: center;
 }
 
 img.question-one-image {
@@ -31,6 +35,7 @@ img.question-one-image {
   max-width: 90%;
   height: auto;
   margin: 0 auto 12px;
+  filter: drop-shadow(0 2px 4px #4A6E75)
 }
 
 .question h3 {
@@ -39,7 +44,8 @@ img.question-one-image {
 
 .evolution-stage {
   text-align: center;
-  margin: 16px 0;
+  margin: 5px;
+  filter: drop-shadow(0 2px 4px #4A6E75)
 }
 
 .evolution-stage img {
@@ -63,7 +69,10 @@ img.question-one-image {
 
 .badge-collection {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 520px);
+  margin-left: auto;
+  margin-right: auto;
   gap: 10px;
   margin-top: 12px;
 }
@@ -75,10 +84,26 @@ img.question-one-image {
   background: rgba(255, 255, 255, 0.35);
   color: #7a1f1f;
   opacity: 0.35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 92px;
 }
 
 .gym-badge.earned {
   opacity: 1;
   background: #FAD028;
   color: #4A6E75;
+}
+
+.gym-badge img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+#answer-form {
+  filter: drop-shadow(0 2px 4px #4A6E75);
 }
