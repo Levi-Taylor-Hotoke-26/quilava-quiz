@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Quilava Quiz</title>
+  <meta charset="UTF-8" />
+  <link href="main.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+
+
+<body>
+  <h1>Quilava Quiz!</h1>
+  <h2>Test your Pokemon Knowledge, evolve Cyndaquil into Typhlosion, and earn all eight gym badges with 40 correct
+    answers!</h2>
+  <div class="evolution-stage">
+    <img id="pokemon-evolution" src="https://img.pokemondb.net/sprites/home/normal/2x/avif/cyndaquil.avif"
+      alt="Cyndaquil" />
+  </div>
+  <div class="questions">
+    <div id="question-one"></div>
+    <img class="question-one-image" alt="Question 1 image" />
+  </div>
+  <div class="answer">
+    <form id="answer-form">
+      <input id="answer-input" type="text" autocomplete="off" placeholder="Type your answer" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="feedback" id="feedback"></div>
+  <div class="experience-counter">
+    <h3 id="experience-counter">Experience Points: 0</h3>
+  </div>
+  <div class="badge-tracker">
+    <h3 id="badge-counter">Gym Badges: 0 / 8</h3>
+    <div id="badge-collection" class="badge-collection"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
