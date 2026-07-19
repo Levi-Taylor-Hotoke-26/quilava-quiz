@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Pokemon';
+  src: url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff')
+    format('woff');
+}
+
+body {
+  background: #F5E6C4;
+}
+
+h1, h2 {
+  color: #FAD028;
+  -webkit-text-stroke-color: #E65A28;
+  -webkit-text-stroke-width: 2px;
+  font-family:'pokemon', sans-serif;
+  background: #4A6E75;
+  padding: 2px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+#question-one {
+  font-family: 'pokemon', sans-serif;
+  color:#7a1f1f
+}
+
+img.question-one-image {
+  display: block;
+  width: 220px;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto 12px;
+}
+
+.question h3 {
+  color: #A83232;
+}
+
+.evolution-stage {
+  text-align: center;
+  margin: 16px 0;
+}
+
+.evolution-stage img {
+  width: 180px;
+  height: auto;
+}
+
+.experience-counter {
+  text-align: center;
+  font-family:'pokemon', sans-serif;
+  color: #A83232;
+}
+
+.badge-tracker {
+  max-width: 900px;
+  margin: 16px auto 0;
+  text-align: center;
+  font-family:'pokemon', sans-serif;
+  color: #A83232;
+}
+
+.badge-collection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.gym-badge {
+  border: 2px solid #A83232;
+  border-radius: 14px;
+  padding: 10px 8px;
+  background: rgba(255, 255, 255, 0.35);
+  color: #7a1f1f;
+  opacity: 0.35;
+}
+
+.gym-badge.earned {
+  opacity: 1;
+  background: #FAD028;
+  color: #4A6E75;
+}
